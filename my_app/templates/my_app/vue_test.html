@@ -1,0 +1,22 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+        <h1>Testing Vue...</h1>
+        <div id="app"></div>
+
+        <script type="text/javascript" src="{% static 'src/vue/dist/js/chunk-vendors.js' %}"></script>
+        <script type="text/javascript" src="{% static 'src/vue/dist/js/app.js' %}"></script>
+        <link href="{% static 'src/vue/dist/css/app.css' %}" rel=stylesheet>
+    </body>
+</html>
+{% load render_bundle from webpack_loader %}
+
+<div id="app">
+  <app></app>
+</div>
+{% render_bundle 'chunk-vendors' %}
+{% render_bundle 'vue_test' %}
